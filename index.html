@@ -15,8 +15,7 @@
         src="https://staging-cdn.adzapsrv.com/cmp/v2.2/web/0b517f9d-9164-4c98-be95-dd4b2872930b/006c7189-663e-447c-b49d-d4ac8c345f5d-bundle.js"></script> -->
 
         <!-- ob media -->
-        <script type="application/javascript"
-        src="https://cdn.primeconsent.com/cmp/v2.2/web/fa4dc19c-fab7-4691-82ef-10eb6aad9f31/fa79ec66-da59-493e-bef4-471e8d50db30-bundle.js"></script>
+<!--         <script type="application/javascript" src="https://cdn.primeconsent.com/cmp/v2.2/web/fa4dc19c-fab7-4691-82ef-10eb6aad9f31/fa79ec66-da59-493e-bef4-471e8d50db30-bundle.js"></script> -->
 
         
 
@@ -227,10 +226,18 @@
             adBlock1.adLoadedCallback = adCallback;
 
 
-            //    var s = document.createElement("script");
-            //    s.setAttribute("src", "https://cdn.primeconsent.com/cmp/v2.2/web/0c31c814-ea86-461f-8ccb-294f05bc74c3/48606663-451b-417b-88e6-c7753f3d3616-bundle.js");
-            //    document.body.appendChild( s ); 
-
+                var s = document.createElement("script");
+                s.setAttribute("src", "https://cdn.primeconsent.com/cmp/v2.2/web/0c31c814-ea86-461f-8ccb-294f05bc74c3/48606663-451b-417b-88e6-c7753f3d3616-bundle.js");
+                document.body.appendChild( s ); 
+       window.addEventListener("AzConsentStatus", e => {
+       console.log(e.detail.status);
+       debugger;
+       
+             if (e.detail && e.detail.status && e.detail.status == "accept_all") {
+             
+                 loadAds();
+             }
+      });
 
 
 
@@ -448,7 +455,7 @@
                                         // GDPR DOES NOT APPLY
                                         // Insert adsbygoogle.js onto the page.
                                         debugger;
-                                        loadAdsNew();
+                                        //loadAds();
                                     }
                                     else {
                                         // GDPR DOES APPLY
@@ -464,7 +471,7 @@
                                                 // Insert adsbygoogle.js onto the page.
                                                 debugger;
                                                 
-                                                loadAds();
+                                             //   loadAds();
                                             }
                                         }
                                     }
